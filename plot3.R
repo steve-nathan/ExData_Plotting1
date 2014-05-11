@@ -1,5 +1,5 @@
-file <- "./data/household_power_consumption.txt"
-hdata <-read.csv2(file, header = TRUE, sep = ";",stringsAsFactors=FALSE)
+library(utils)
+hdata <-read.csv2(unz("household_power_consumption.zip", "household_power_consumption.txt"), header = TRUE, sep = ";",stringsAsFactors=FALSE)
 hdata2 <- subset(hdata,Date == "1/2/2007" | Date == "2/2/2007")
 hdata2[,1] <- as.Date(hdata2[,1],'%d/%m/%Y')
 hdata2[,2] <- hdata2[,2]
